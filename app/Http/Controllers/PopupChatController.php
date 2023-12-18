@@ -20,8 +20,7 @@ class PopupChatController extends Controller
 
     public function index() 
     {
-        $answer = "";
-        return view('welcome')->with(["answer" => $answer]);
+        return view('welcome');
     }
 
     public function send(Request $request) {
@@ -39,6 +38,5 @@ class PopupChatController extends Controller
 
         $answer = json_decode($response->getBody(), true)['choices'][0]['message']['content'];
         return json_encode($answer);
-//        return view('welcome')->with(["answer" => $answer]);
     }
 }
